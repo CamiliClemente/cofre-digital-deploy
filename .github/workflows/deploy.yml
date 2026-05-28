@@ -19,17 +19,4 @@ jobs:
         with:
           context: .
           file: ./docker/Dockerfile
-          push: false # Garante que nao precisa de login para testar!
-
-  deploy-staging:
-    name: Deploy Staging
-    runs-on: ubuntu-latest
-    needs: build
-    steps:
-      - name: Realizando o Deploy Seguro
-        run: |
-          echo "Iniciando deploy para o ambiente de testes (STAGING)..."
-          echo "Buscando dados salvos no cofre de forma segura..."
-          echo "DB_HOST=${{ secrets.STAGING_DB_HOST }}" >> staging.env
-          echo "DB_USER=${{ secrets.STAGING_DB_USER }}" >> staging.env
-          echo "Deploy em Staging concluido com sucesso!"
+          push: false
